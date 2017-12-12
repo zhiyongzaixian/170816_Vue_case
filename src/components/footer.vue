@@ -16,7 +16,12 @@
     computed: {
       // 计算全部完成的todolength
       allCompleteTodos(){
-        return this.todos.filter(item => item.complete).length
+        // return this.todos.filter(item => item.complete).length
+        let result = 0
+        this.todos.reduce(function (preCount, todo) {
+          result += todo.complete?1:0
+        }, 0)
+        return result
       },
       // 设置全选全不选按钮的状态
       changeAllComplete: {

@@ -69,7 +69,7 @@
   * item接收数据动态展示
 ### 3. 完成底部全选全不选的功能
   * 根据显示的todoItem 影响全选全不选的按钮的选中状态
-    - 全部完成的checkbox.length === todos.length
+    - 全部完成的checkbox.length === todos.length && this.allCompleteTodos
   * 根据全选全不选的按钮影响todoItem的选中状态
     - 拿到全选全不选的按钮的状态： true/false
     - 将该数据交给app

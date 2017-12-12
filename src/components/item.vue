@@ -1,7 +1,7 @@
 <template>
   <li class="list-group-item">
     <div class="handle">
-      <a href="javascript:;">删除</a>
+      <a @click="del(index)" href="javascript:;">删除</a>
     </div>
     <p class="user"><span >{{todo.username}}</span><span> 说: </span></p>
     <p class="centence">{{todo.comment}}</p>
@@ -15,7 +15,15 @@
       index: {
         type: Number,
         required: true
-      }
+      },
+      del: Function
+    },
+    methods: {
+//      delComment(){
+//        if(confirm(`你确认删除 ${this.todo.username}吗？`)){
+//          this.del(this.index)
+//        }
+//      }
     }
   }
 </script>

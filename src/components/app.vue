@@ -11,7 +11,7 @@
     </header>
     <div class="container">
       <add :add="add"/>
-      <list :todos="todos"/>
+      <list :todos="todos" :del="del"/>
     </div>
   </div>
 </template>
@@ -34,6 +34,11 @@
     methods: {
       add(commentObj){
         this.todos.unshift(commentObj)
+      },
+      del(index){
+        if(confirm(`你确认删除 ${this.todos[index].username}吗？`)){
+          this.todos.splice(index, 1)
+        }
       }
     }
   }

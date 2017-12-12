@@ -46,3 +46,11 @@
              this.comment = ''
            }
          }
+## 删除功能
+  * 思考： 
+    - 删除数组里的某一项
+    - 需要的index
+    - 提供index的是：item组件
+  * 实践： 
+    - 将item里的index传递给app组件
+    - 在app组件里操作数据

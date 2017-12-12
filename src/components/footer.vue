@@ -37,4 +37,8 @@
     vertical-align: middle;
     margin-right: 5px;
   }
+  .todo-footer button {
+    float: right;
+    margin-top: 5px;
+  }
 </style>

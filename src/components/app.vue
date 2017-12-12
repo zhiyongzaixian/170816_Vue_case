@@ -1,7 +1,7 @@
 <template>
   <div class="todo-container">
     <div class="todo-wrap">
-      <todo-header />
+      <todo-header :add="add"/>
       <todo-main :todos="todos"/>
       <todo-footer />
     </div>
@@ -25,6 +25,11 @@
           {todoName: '睡觉', complete: false},
           {todoName: '打豆豆', complete: false}
         ]
+      }
+    },
+    methods: {
+      add(todoObj){
+        this.todos.unshift(todoObj)
       }
     }
   }

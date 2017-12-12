@@ -10,7 +10,7 @@
       </div>
     </header>
     <div class="container">
-      <add />
+      <add :add="add"/>
       <list :todos="todos"/>
     </div>
   </div>
@@ -29,6 +29,11 @@
           {username: '山西人', comment: '我们有煤矿'},
           {username: '北京人', comment: '吃了吗，您那'}
         ]
+      }
+    },
+    methods: {
+      add(commentObj){
+        this.todos.unshift(commentObj)
       }
     }
   }

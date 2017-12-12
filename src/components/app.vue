@@ -1,53 +1,49 @@
 <template>
-  <div>
-    <header class="site-header jumbotron">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12">
-            <h1>请发表对React的评论</h1>
-          </div>
-        </div>
-      </div>
-    </header>
-    <div class="container">
-      <add :add="add"/>
-      <list :todos="todos" :del="del"/>
+  <div class="todo-container">
+    <div class="todo-wrap">
+      <todo-header />
+      <todo-main :todos="todos"/>
+      <todo-footer />
     </div>
   </div>
 </template>
 
 <script>
-  import add from './add.vue'
-  import list from './list.vue'
+  import header from './header.vue'
+  import main from './main.vue'
+  import footer from './footer.vue'
   export default {
-    components: {
-      add, list
+    components: { // 注册组件
+      'todoHeader': header,
+      'todo-main': main,
+      'todo-footer': footer
     },
-    data () {
+    data(){
       return {
         todos: [
-          {username: '山西人', comment: '我们有煤矿'},
-          {username: '北京人', comment: '吃了吗，您那'}
+          {todoName: '吃饭', complete: false},
+          {todoName: '睡觉', complete: false},
+          {todoName: '打豆豆', complete: false}
         ]
-      }
-    },
-    methods: {
-      add(commentObj){
-        this.todos.unshift(commentObj)
-      },
-      del(index){
-        if(confirm(`你确认删除 ${this.todos[index].username}吗？`)){
-          this.todos.splice(index, 1)
-        }
       }
     }
   }
 </script>
 
 <style>
-  .reply {
-    margin-top: 0px;
+
+
+  /*app*/
+  .todo-container {
+    width: 600px;
+    margin: 0 auto;
   }
+  .todo-container .todo-wrap {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+
 
 
 </style>

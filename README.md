@@ -54,3 +54,14 @@
   * 实践： 
     - 将item里的index传递给app组件
     - 在app组件里操作数据
+## 分割线
+## todo_case
+### 1. 拆分组件
+  * app: 应用主组件
+  * header: 头部组件
+  * main: 主体组件
+    * item: todo个体组件
+  * footer: 底部组件
+  * 数据源： app
+### 2. 实现静态页面
+  

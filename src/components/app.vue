@@ -2,8 +2,8 @@
   <div class="todo-container">
     <div class="todo-wrap">
       <todo-header :add="add"/>
-      <todo-main :todos="todos"/>
-      <todo-footer />
+      <todo-main :todos="todos" :del="del"/>
+      <todo-footer :todos="todos"/>
     </div>
   </div>
 </template>
@@ -30,6 +30,9 @@
     methods: {
       add(todoObj){
         this.todos.unshift(todoObj)
+      },
+      del(index){
+        this.todos.splice(index, 1)
       }
     }
   }

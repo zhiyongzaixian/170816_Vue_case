@@ -4,14 +4,21 @@
       <input type="checkbox"/>
     </label>
     <span>
-          <span>已完成0</span> / 全部2
+          <span>已完成{{allCompleteTodos}}</span> / 全部{{todos.length}}
         </span>
-    <button class="btn btn-danger">清除已完成任务</button>
+    <button class="btn btn-danger" v-show="allCompleteTodos">清除已完成任务</button>
   </div>
 </template>
 
 <script>
-  export default {}
+  export default {
+    props: ['todos'],
+    computed: {
+      allCompleteTodos(){
+        return this.todos.filter(item => item.complete).length
+      }
+    }
+  }
 </script>
 
 <style>

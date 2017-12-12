@@ -1,6 +1,6 @@
 <template>
   <ul class="todo-main">
-    <item v-for="(todo, index) in todos"  :key="index" :todo="todo" :index="index"/>
+    <item v-for="(todo, index) in todos"  :key="index" :todo="todo" :index="index" :del="del"/>
   </ul>
 </template>
 
@@ -8,7 +8,8 @@
   import item from './item.vue'
   export default {
     props: {
-      todos: Array
+      todos: Array,
+      del: Function
     },
     components: {
       item

@@ -3,10 +3,8 @@
     <label>
       <input v-model="changeAllComplete" type="checkbox"/>
     </label>
-    <span>
-          <span>已完成{{allCompleteTodos}}</span> / 全部{{todos.length}}
-        </span>
-    <button @click="delAllCompleteTodo" class="btn btn-danger" v-show="allCompleteTodos">清除已完成任务</button>
+    <slot name="count"></slot>
+    <slot name="delAll"></slot>
   </div>
 </template>
 

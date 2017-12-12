@@ -1,9 +1,16 @@
 <template>
   <div class="todo-container">
     <div class="todo-wrap">
-      <todo-header :add="add"/>
+      <!--<todo-header v-on:add="add"/>-->
+      <todo-header ref="header"/>
       <todo-main :todos="todos" :del="del"/>
-      <todo-footer :todos="todos" :changeAllCheckBox="changeAllCheckBox" :delAllCompleteTodo="delAllCompleteTodo"/>
+      <todo-footer :todos="todos" :changeAllCheckBox="changeAllCheckBox" :delAllCompleteTodo="delAllCompleteTodo">
+        <span slot="count">
+          <span>333已完成{{allCompleteTodos}}</span> / 全部{{todos.length}}
+        </span>
+        <button slot="delAll" @click="delAllCompleteTodo" class="btn btn-danger" v-show="allCompleteTodos">清除已完成任务</button>
+
+      </todo-footer>
     </div>
   </div>
 </template>
@@ -25,11 +32,13 @@
       }
     },
     mounted(){
+      this.$refs.header.$on('add', this.add)
       // 更新状态
       this.todos = localStorageUtil.getData() || []
     },
     methods: {
-      add(todoObj){
+      add(todoObj, test){
+        console.log(todoObj, test)
         this.todos.unshift(todoObj)
       },
       del(index){
@@ -52,6 +61,17 @@
           // todos内部的数据发生了改变
           localStorageUtil.setData(value)
         }
+      }
+    },
+    computed: {
+      // 计算全部完成的todolength
+      allCompleteTodos(){
+        // return this.todos.filter(item => item.complete).length
+        let result = 0
+        this.todos.reduce(function (preCount, todo) {
+          result += todo.complete?1:0
+        }, 0)
+        return result
       }
     }
   }

@@ -74,3 +74,33 @@
     - 拿到全选全不选的按钮的状态： true/false
     - 将该数据交给app
     - 根据传递过来的isChecked更新todoItem的选中状态
+### 4. 封装功能模块
+    
+    // 封装保存读取数据的localStorage功能模块
+    // 思考：封装功能模块根据什么封装？
+    // 当功能点大于一个的时候耿庄成对象
+    const todo_key = 'todo_key'
+    export default {
+      getData(){// 读取数据
+        return JSON.parse(localStorage.getItem(todo_key))
+      },
+      setData(value){// 当别人调用该方法的时候保存数据
+        localStorage.setItem(todo_key, JSON.stringify(value))
+      }
+    }
+### 自定义事件
+  * 绑定事件
+    * 事件名
+    * 回调函数： function(event){}
+  * 触发事件
+    * 事件名
+    * 数据
+  * v-on:事件名=事件的回调函数
+  * 组件实例对象.$on(事件名， 回调函数)
+  * 组件实例对象.$emit(事件名, 数据)
+  * <font color=red>以上用的方式只能是相邻的父子组件传递数据，子组件--->父组件</font>
+### slot 插槽
+  * 父组件--->子组件
+  * 传递的数据： 标签页面
+  * 需要传递的数据写在对应组件的表前体
+    

@@ -8,13 +8,14 @@
 
 <script>
   export default {
-    props: ['add'],
+    // props: ['add'],
     data(){
       return {
         newTodo: ''
       }
     },
     methods: {
+
       addTodo(){
         // 收集数据
         let newTodo = this.newTodo
@@ -26,7 +27,8 @@
         // 整理数据
         let todoObj = {todoName: newTodo, complete: false}
         // 将数据交给app
-        this.add(todoObj)
+        // this.add(todoObj)
+        this.$emit('add', todoObj, 'testData')
         //  清空用户输入的内容
         this.newTodo = ''
       }

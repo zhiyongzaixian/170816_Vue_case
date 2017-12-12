@@ -1,21 +1,32 @@
 <template>
   <div class="todo-footer">
     <label>
-      <input type="checkbox"/>
+      <input v-model="changeAllComplete" type="checkbox"/>
     </label>
     <span>
           <span>已完成{{allCompleteTodos}}</span> / 全部{{todos.length}}
         </span>
-    <button class="btn btn-danger" v-show="allCompleteTodos">清除已完成任务</button>
+    <button @click="delAllCompleteTodo" class="btn btn-danger" v-show="allCompleteTodos">清除已完成任务</button>
   </div>
 </template>
 
 <script>
   export default {
-    props: ['todos'],
+    props: ['todos', 'changeAllCheckBox', 'delAllCompleteTodo'],
     computed: {
+      // 计算全部完成的todolength
       allCompleteTodos(){
         return this.todos.filter(item => item.complete).length
+      },
+      // 设置全选全不选按钮的状态
+      changeAllComplete: {
+        get(){
+          return this.allCompleteTodos == this.todos.length && this.allCompleteTodos
+        },
+        set(isChecked){// 监视checkbox是否选中
+          console.log(isChecked)
+          this.changeAllCheckBox(isChecked)
+        }
       }
     }
   }

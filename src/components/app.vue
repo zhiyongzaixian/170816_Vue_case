@@ -3,7 +3,7 @@
     <div class="todo-wrap">
       <todo-header :add="add"/>
       <todo-main :todos="todos" :del="del"/>
-      <todo-footer :todos="todos"/>
+      <todo-footer :todos="todos" :changeAllCheckBox="changeAllCheckBox" :delAllCompleteTodo="delAllCompleteTodo"/>
     </div>
   </div>
 </template>
@@ -33,6 +33,14 @@
       },
       del(index){
         this.todos.splice(index, 1)
+      },
+      changeAllCheckBox(isChecked){
+        // 修改全部checkbox的选中/未选中的状态
+        this.todos.forEach(item => item.complete = isChecked)
+      },
+      // 清除选中的todo
+      delAllCompleteTodo(){
+        this.todos = this.todos.filter(item => !item.complete)
       }
     }
   }

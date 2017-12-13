@@ -5,6 +5,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import about from '../components/about.vue'
 import home from '../components/home.vue'
+import news from '../components/news.vue'
+import message from '../components/message.vue'
+import detail from '../components/detail.vue'
 
 Vue.use(VueRouter)
 
@@ -18,7 +21,23 @@ export default new VueRouter({
     },
     {
       path: '/home',
-      component: home
+      component: home,
+      children: [
+        {
+          path: '/home/news',
+          component: news
+        },
+        {
+          path: 'message',
+          component: message,
+          children: [
+            {
+              path: 'detail/:newsId',
+              component: detail
+            }
+          ]
+        }
+      ]
     },
     {
       path: '/',

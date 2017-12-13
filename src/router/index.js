@@ -8,11 +8,13 @@ import home from '../components/home.vue'
 import news from '../components/news.vue'
 import message from '../components/message.vue'
 import detail from '../components/detail.vue'
+import notFound from '../components/notFound.vue'
 
 Vue.use(VueRouter)
 
 // 注册路由器
 export default new VueRouter({
+  mode: 'history',
   linkActiveClass: 'active',
   routes: [
     {
@@ -42,6 +44,10 @@ export default new VueRouter({
     {
       path: '/',
       redirect: '/about'
+    },
+    {
+      path: '*',
+      component: notFound
     }
   ]
 })

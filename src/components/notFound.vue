@@ -1,7 +1,6 @@
 <template>
   <div>
-    <h2>about组件。。。</h2>
-    <input type="text">
+    哈哈，你没找到。。。
   </div>
 </template>
 

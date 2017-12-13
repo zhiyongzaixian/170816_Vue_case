@@ -18,7 +18,9 @@
 
         <div class="panel">
           <!--接收路由组件的容器-->
-          <router-view></router-view>
+          <keep-alive>
+            <router-view></router-view>
+          </keep-alive>
         </div>
       </div>
     </div>
@@ -26,7 +28,13 @@
 </template>
 
 <script>
-  export default {}
+  export default {
+    watch: {
+      $route(to, from){
+        console.log(to, from)
+      }
+    }
+  }
 </script>
 
 <style>

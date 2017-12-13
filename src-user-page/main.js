@@ -1,9 +1,10 @@
 import Vue from 'vue'
-import router from './router'
+import VueResource from 'vue-resource'
 import app from './components/app.vue'
+
+Vue.use(VueResource)
 
 new Vue({
   el: '#app',
-  render: h => h(app),
-  router  // 使用路由器
+  render: h => h(app)
 })

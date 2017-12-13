@@ -103,4 +103,26 @@
   * 父组件--->子组件
   * 传递的数据： 标签页面
   * 需要传递的数据写在对应组件的表前体
+  
+## 分割线。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。
+## vue-router
+### 1. 引入Vue核心库，vue-router
+### 2. Vue.use(VueRouter)
+  * 声明使用Vue的插件： VueRouter.install(Vue)
+### 3. 注册路由器
     
+    export default new VueRouter({
+      routes: [
+        {
+          path: '/about',
+          component: about
+        },
+        {
+          path: '/home',
+          component: home
+        }
+      ]
+    })
+### 4. 使用路由器
+
+      

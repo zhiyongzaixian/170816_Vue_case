@@ -1,28 +1,32 @@
 <template>
-  <div class="container">
-    <search :getName="getName"/>
-    <list :getSearchName="getSearchName"/>
+  <div>
+    <div class="row">
+      <div class="col-xs-offset-2 col-xs-8">
+        <div class="page-header"><h2>Router Basic - 01</h2></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-2 col-xs-offset-2">
+        <div class="list-group">
+          <router-link to="/about" class="list-group-item">About</router-link>
+          <router-link to="/home" class="list-group-item">home</router-link>
+          <!--<a href="#/about" class="list-group-item router-link-exact-active active">About</a>-->
+          <!--<a href="#/home" class="list-group-item">Home</a></div>-->
+        </div>
+      </div>
+      <div class="col-xs-6">
+
+        <div class="panel">
+          <!--接收路由组件的容器-->
+          <router-view></router-view>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-  import search from './search.vue'
-  import list from './list.vue'
-  export default {
-    components: {
-      search, list
-    },
-    data(){
-      return {
-        getSearchName: ''
-      }
-    },
-    methods: {
-      getName(searchName){
-        this.getSearchName = searchName
-      }
-    }
-  }
+  export default {}
 </script>
 
 <style>
